@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { MachzorimRepository } from '@app/_services/machzorim.repository';
 import {
     NgbCalendar,
     NgbCalendarHebrew,
@@ -27,7 +28,9 @@ export class HebrewDatePickerRangeComponent {
     mikvahDay: NgbDate;
     vesetHachodeshDay: NgbDate;
 
-    constructor(private calendar: NgbCalendar, public i18n: NgbDatepickerI18n) {
+    constructor(private calendar: NgbCalendar, 
+                public i18n: NgbDatepickerI18n,
+                private machzorim: MachzorimRepository) {
         this.dayTemplateData = this.dayTemplateData.bind(this);
         this.fromDate = calendar.getToday();
         this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
@@ -83,5 +86,16 @@ export class HebrewDatePickerRangeComponent {
 
     isVesetHachodeshDay(date: NgbDate) {
         return this.toDate && date.equals(this.vesetHachodeshDay);
+    }
+
+    addMachzor() {
+        this.machzorim.addMachzor({ 
+            hebStartDay: this.fromDate.day,
+            hebStartMonth: this.fromDate.month,
+            hebStartYear: this.fromDate.year,
+            hebEndDay: this.toDate.day,
+            hebEndMonth: this.toDate.month,
+            hebEndYear: this.toDate.year
+          }).subscribe(result => console.log("Successfully added"));      
     }
 }

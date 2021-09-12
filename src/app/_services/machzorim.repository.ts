@@ -13,8 +13,12 @@ export class MachzorimRepository {
   
   public addMachzor(machzor: Machzor): Observable<number> {
     return this.db.add(objectStores.MACHZORIM, {
-      machzorStart: machzor.start,
-      machzorEnd: machzor.end
+      hebStartDay: machzor.hebStartDay,
+      hebStartMonth: machzor.hebStartMonth,
+      hebStartYear: machzor.hebStartYear,
+      hebEndDay: machzor.hebEndDay,
+      hebEndMonth: machzor.hebEndMonth,
+      hebEndYear: machzor.hebEndYear,
     });
   }
 }

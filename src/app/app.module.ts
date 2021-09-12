@@ -20,17 +20,26 @@ import { HebrewDatePickerRangeComponent } from './hebrew-date-picker-range/hebre
 import { MachzorimRepository } from './_services/machzorim.repository';
 import { DBConfig } from 'ngx-indexed-db';
 import { NgxIndexedDBModule } from 'ngx-indexed-db';
+import * as objectStores from './_helpers/objectStores';
 
 export function migrationFactory() {
     return {
-        
+        2: (db: IDBDatabase, transaction: IDBTransaction) => {
+            const store: IDBObjectStore = transaction.objectStore(objectStores.MACHZORIM);
+            store.createIndex('hebStartDay', 'hebStartDay', { unique: false });
+            store.createIndex('hebStartMonth', 'hebStartMonth', { unique: false });
+            store.createIndex('hebStartYear', 'hebStartYear', { unique: false });
+            store.createIndex('hebEndDay', 'hebEndDay', { unique: false });
+            store.createIndex('hebEndMonth', 'hebEndMonth', { unique: false });
+            store.createIndex('hebEndYear', 'hebEndYear', { unique: false });
+        }
     }
 }
 
 // Database configuration
 const dbConfig: DBConfig = {
     name: 'Calendar',
-    version: 1,
+    version: 2,
     objectStoresMeta: [{
         store: 'machzorim',
         storeConfig: { keyPath: 'id', autoIncrement: true },

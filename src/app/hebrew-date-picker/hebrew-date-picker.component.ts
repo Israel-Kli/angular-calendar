@@ -42,8 +42,9 @@ export class HebrewDatePickerComponent {
 
   public addMachzor() {
     this.machzorim.addMachzor({ 
-      start: new Date(2021, 6, 8),
-      end: new Date()
+      hebStartDay: this.model.day,
+      hebStartMonth: this.model.month,
+      hebStartYear: this.model.year
     }).subscribe(result => console.log("Successfully added"));
   }
 }

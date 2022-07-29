@@ -1,4 +1,4 @@
-﻿import {Component} from '@angular/core';
+﻿import {Component, OnInit} from '@angular/core';
 import {first} from 'rxjs/operators';
 
 import {User} from '@app/_models';
@@ -8,7 +8,7 @@ import {UserService, AuthenticationService} from '@app/_services';
     templateUrl: 'calendar.component.html',
     styleUrls: ['calendar.component.css']
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit {
     loading = false;
     users: User[];
 

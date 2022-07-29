@@ -114,9 +114,21 @@
               "devServerTarget": "angular-9-jwt-authentication-example:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "angular-9-jwt-authentication-example"
+  "defaultProject": "angular-9-jwt-authentication-example",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

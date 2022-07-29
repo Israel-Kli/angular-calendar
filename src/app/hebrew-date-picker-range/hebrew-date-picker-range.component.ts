@@ -28,7 +28,7 @@ export class HebrewDatePickerRangeComponent {
     mikvahDay: NgbDate;
     vesetHachodeshDay: NgbDate;
 
-    constructor(private calendar: NgbCalendar, 
+    constructor(private calendar: NgbCalendar,
                 public i18n: NgbDatepickerI18n,
                 private machzorim: MachzorimRepository) {
         this.dayTemplateData = this.dayTemplateData.bind(this);
@@ -89,13 +89,13 @@ export class HebrewDatePickerRangeComponent {
     }
 
     addMachzor() {
-        this.machzorim.addMachzor({ 
+        this.machzorim.addMachzor({
             hebStartDay: this.fromDate.day,
             hebStartMonth: this.fromDate.month,
             hebStartYear: this.fromDate.year,
             hebEndDay: this.toDate.day,
             hebEndMonth: this.toDate.month,
             hebEndYear: this.toDate.year
-          }).subscribe(result => console.log("Successfully added"));      
+          }).subscribe(() => console.log("Successfully added"));
     }
 }

@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 export class MachzorimRepository {
 
   constructor(private db: NgxIndexedDBService) { }
-  
-  public addMachzor(machzor: Machzor): Observable<number> {
+
+  public addMachzor(machzor: Machzor): Observable<Machzor> {
     return this.db.add(objectStores.MACHZORIM, {
       hebStartDay: machzor.hebStartDay,
       hebStartMonth: machzor.hebStartMonth,

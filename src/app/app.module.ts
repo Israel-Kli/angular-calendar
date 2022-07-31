@@ -33,7 +33,7 @@ export function migrationFactory() {
             store.createIndex('hebEndMonth', 'hebEndMonth', { unique: false });
             store.createIndex('hebEndYear', 'hebEndYear', { unique: false });
         }
-    }
+    };
 }
 
 // Database configuration
@@ -75,7 +75,7 @@ const dbConfig: DBConfig = {
         // provider used to create fake backend
         fakeBackendProvider,
 
-        MachzorimRepository
+        MachzorimRepository,
     ],
     bootstrap: [AppComponent]
 })

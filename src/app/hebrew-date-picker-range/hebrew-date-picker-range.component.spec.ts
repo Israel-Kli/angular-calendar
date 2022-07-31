@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HebrewDatePickerRangeComponent } from './hebrew-date-picker-range.component';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
+import { InjectionToken } from '@angular/core';
 
 describe('HebrewDatePickerRangeComponent', () => {
   let component: HebrewDatePickerRangeComponent;
@@ -8,9 +10,15 @@ describe('HebrewDatePickerRangeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HebrewDatePickerRangeComponent ]
+      declarations: [HebrewDatePickerRangeComponent],
+      providers: [NgxIndexedDBService,
+        {
+          useValue: new InjectionToken<string>('NgxIndexedDBService'),
+          provide: NgxIndexedDBService,
+        }
+      ],
     })
-    .compileComponents();
+        .compileComponents();
   }));
 
   beforeEach(() => {

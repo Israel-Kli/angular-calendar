@@ -127,8 +127,9 @@
       }
     }
   },
-  "defaultProject": "angular-9-jwt-authentication-example",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

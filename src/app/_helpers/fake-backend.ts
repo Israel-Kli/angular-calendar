@@ -9,7 +9,7 @@ const users: User[] = [{ id: 1, username: 'test', password: 'test', firstName: '
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
-    intercept(request: HttpRequest<{ username, password }>, next: HttpHandler): Observable<HttpEvent<any>> {
+    intercept(request: HttpRequest<{ username, password }>, next: HttpHandler): Observable<HttpEvent<object>> {
         const { url, method, headers, body } = request;
 
         // wrap in delayed observable to simulate server api call

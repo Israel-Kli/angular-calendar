@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as objectStores from '@app/_helpers/objectStores';
-import { Machzor } from '@app/_models/index';
+import { Machzor } from '@app/_models';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { Observable } from 'rxjs';
 
@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 export class MachzorimRepository {
 
   constructor(private db: NgxIndexedDBService) { }
-  
-  public addMachzor(machzor: Machzor): Observable<number> {
+
+  public addMachzor(machzor: Machzor): Observable<Machzor> {
     return this.db.add(objectStores.MACHZORIM, {
       hebStartDay: machzor.hebStartDay,
       hebStartMonth: machzor.hebStartMonth,

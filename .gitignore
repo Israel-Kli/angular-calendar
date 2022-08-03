@@ -1,2 +1,4 @@
-/node_modules/
+/.angular/cache
 .idea/
+/node_modules/
+/dist/

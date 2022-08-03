@@ -1,5 +1,5 @@
 Check the app on master:
-https://israel-kli.github.io/
+https://israel-kli.github.io/angular-calendar
 
 # Angular calendar with JWT authentication
 
